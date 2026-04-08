@@ -1,0 +1,33 @@
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.industry-card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition);
+  border-left: 4px solid var(--accent-color);
+}
+
+.industry-card:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--primary-color);
+}
+
+.industry-icon {
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.industry-card span {
+  font-weight: 500;
+  color: var(--text-color);
+}

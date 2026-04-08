@@ -1,0 +1,12 @@
+.products-page .page-header {
+  margin-bottom: 0;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
