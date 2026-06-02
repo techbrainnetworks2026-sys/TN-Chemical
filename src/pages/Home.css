@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 600px;
+
   background-image: url('../../public/image/chemical_background.jpeg');
   /* Nature/Industrial vibe */
   background-size: cover;
@@ -10,7 +10,7 @@
   /* Parallax effect */
   display: flex;
   align-items: center;
-  margin-top: -80px;
+ 
   /* offset navbar */
   padding-top: 80px;
 }

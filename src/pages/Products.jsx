@@ -1,107 +1,128 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import './Products.css';
+import prd1 from '../assets/prd1.jpg'
+import prd2 from '../assets/prd2.jpg'
+import prd3 from '../assets/prd3.jpg'
+import prd4 from '../assets/prd4.webp'
+import prd5 from '../assets/prd5.jpg'
+import prd6 from '../assets/prd6.png'
+import prd7 from '../assets/prd7.jpg'
+import prd8 from '../assets/prd8.jpg'
+import prd9 from '../assets/prd9.jpg'
+import prd10 from '../assets/prd10.jpg'
+import prd11 from '../assets/prd11.jpeg'
+import prd12 from '../assets/prd12.avif'
+import prd13 from '../assets/prd13.jpg'
+import prd14 from '../assets/prd14.jpg'
+import prd15 from '../assets/prd15.jpg'
+import prd16 from '../assets/prd16.jpg'
+import prd17 from '../assets/prd17.jpg'
+import prd18 from '../assets/prd18.jpeg'
+import prd19 from '../assets/prd19.jpg'
+import prd20 from '../assets/prd20.jpg'
 
-const productsList = [
+export const productsList = [
   {
     id: 1, title: "Process Simulation & Optimization",
     desc: "Chemical plant digital simulation dashboard, process flow diagrams.",
-    img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&h=400&fit=crop"
+    img: prd1
   },
   {
     id: 2, title: "Environmental Impact Assessment",
     desc: "Chemical plant with environmental analytics dashboard.",
-    img: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&h=400&fit=crop"
+    img: prd2
   },
   {
     id: 3, title: "Chemical Inventory Management",
     desc: "Chemical storage warehouse with inventory software.",
-    img: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=600&h=400&fit=crop"
+    img: prd3
   },
   {
     id: 4, title: "LIMS (Laboratory Information)",
     desc: "Modern chemical laboratory with digital data monitoring.",
-    img: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&h=400&fit=crop"
+    img: prd4
   },
   {
     id: 5, title: "Quality Control & Assurance",
     desc: "Lab technician analyzing samples with quality control dashboard.",
-    img: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&h=400&fit=crop"
+    img: prd5
   },
   {
     id: 6, title: "Hazardous Material Tracking",
     desc: "Hazardous chemical containers with tracking analytics.",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop"
+    img: prd6
   },
   {
     id: 7, title: "Chemical Safety Management",
     desc: "Safety dashboard, chemical plant worker with PPE.",
-    img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop"
+    img: prd7
   },
   {
     id: 8, title: "Regulatory Compliance",
     desc: "Compliance analytics dashboard, chemical documentation.",
-    img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop"
+    img: prd8
   },
   {
     id: 9, title: "Sustainable Chemistry Tools",
     desc: "Eco-friendly chemical plant with green technology.",
-    img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop"
+    img: prd9
   },
   {
     id: 10, title: "Supply Chain & Collaboration",
     desc: "Chemical logistics tracking dashboard, transport containers.",
-    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop"
+    img: prd10
   },
   {
     id: 11, title: "Process Safety Management",
     desc: "Chemical plant safety monitoring control room.",
-    img: "https://images.unsplash.com/photo-1565514158740-064f34bd6cfd?w=600&h=400&fit=crop"
+    img: prd11
   },
   {
     id: 12, title: "Computational Chemistry",
     desc: "Molecular structure visualization on scientific software.",
-    img: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=600&h=400&fit=crop"
+    img: prd12
   },
   {
     id: 13, title: "Waste Management & Recycling",
     desc: "Chemical recycling facility, waste management dashboard.",
-    img: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&h=400&fit=crop"
+    img: prd13
   },
   {
     id: 14, title: "Emission Reduction Solutions",
     desc: "Industrial plant emission monitoring analytics.",
-    img: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=600&h=400&fit=crop"
+    img: prd14
   },
   {
     id: 15, title: "Batch Process Control",
     desc: "Chemical batch processing control screen.",
-    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+    img: prd15
   },
   {
     id: 16, title: "Remote Monitoring & Control",
     desc: "Operator monitoring plant remotely using tablet.",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+    img: prd16
   },
   {
     id: 17, title: "Plant Maintenance Software",
     desc: "Industrial maintenance engineer using monitoring system.",
-    img: "https://images.unsplash.com/photo-1565514158740-064f34bd6cfd?w=600&h=400&fit=crop&crop=right"
+    img: prd17
   },
   {
     id: 18, title: "MSDS Management Systems",
     desc: "MSDS documentation software interface.",
-    img: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600&h=400&fit=crop"
+    img: prd18
   },
   {
     id: 19, title: "Digital Twin Technology",
     desc: "Digital twin 3D chemical plant model with analytics overlay.",
-    img: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&h=400&fit=crop"
+    img: prd19
   },
   {
     id: 20, title: "Advanced Market Analytics",
     desc: "Chemical market analytics dashboard, business intelligence charts.",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    img: prd20
   }
 ];
 
@@ -127,7 +148,7 @@ const Products = () => {
                 <div className="product-content">
                   <h3>{prod.title}</h3>
                   <p>{prod.desc}</p>
-                  <button className="product-link btn-text">Learn More <ArrowRight size={16} /></button>
+                  <Link to={`/product/${prod.id}`} className="product-link btn-text" style={{display: 'inline-flex', alignItems: 'center', gap: '5px', textDecoration: 'none'}}>Learn More <ArrowRight size={16} /></Link>
                 </div>
               </div>
             ))}

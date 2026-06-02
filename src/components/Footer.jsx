@@ -57,8 +57,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <div className="container">
+        <div className="container" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap'}}>
           <p>&copy; {new Date().getFullYear()} Techbrain Networks. All rights reserved.</p>
+          <div className="legal-links" style={{display: 'flex', gap: '20px'}}>
+            <Link to="/terms" style={{color: '#a0aec0', textDecoration: 'none'}}>Terms and Conditions</Link>
+            <Link to="/privacy" style={{color: '#a0aec0', textDecoration: 'none'}}>Privacy Policy</Link>
+          </div>
         </div>
       </div>
     </footer>
