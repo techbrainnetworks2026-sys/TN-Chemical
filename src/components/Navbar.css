@@ -174,3 +174,11 @@
     font-size: 1.2rem;
   }
 }
+
+@media(max-width: 480px) {
+  .logo-division {
+    font-size: 0.9rem;
+    letter-spacing: 0.9em;
+  }
+
+}

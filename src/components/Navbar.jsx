@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -31,6 +32,19 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      const targetId = location.hash.replace('#', '');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        setTimeout(() => {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+          setActiveSection(targetId);
+        }, 100);
+      }
+    }
+  }, [location]);
+
   const navLinks = [
     { name: 'Home', path: '#home', id: 'home' },
     { name: 'About', path: '#about', id: 'about' },
@@ -42,14 +56,17 @@ const Navbar = () => {
   ];
 
   const handleNavClick = (e, targetId) => {
-    e.preventDefault();
     closeMenu();
     
-    // If not on root path, go there first? Actually we removed other routes so we are always on root
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(targetId);
+    if (location.pathname !== '/') {
+      navigate(`/#${targetId}`);
+    } else {
+      e.preventDefault();
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(targetId);
+      }
     }
   };
 

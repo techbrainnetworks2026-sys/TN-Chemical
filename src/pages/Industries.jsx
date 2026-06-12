@@ -8,7 +8,7 @@ const industriesList = [
   "Entertainment and Media", "Finance", "Food Technology", 
   "Healthcare", "Infrastructure", "Logistics", "Manufacturing", 
   "Ocean Technology", "Oil and Gas", "Pharmaceutical", "Retail", 
-  "Sports Technology", "Telecommunication", "Textile", 
+  "Sports" ,"Technology", "Telecommunication", "Textile", 
   "Transportation", "Travel"
 ];
 
