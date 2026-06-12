@@ -31,7 +31,7 @@
 
 .detail-content {
   padding: 60px 20px;
-  max-width: 1000px;
+ 
   margin: 0 auto;
 }
 
@@ -95,4 +95,39 @@
   font-size: 2.5rem;
   color: var(--dark, #1a202c);
   margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .detail-header {
+    padding: 90px 0 40px;
+  }
+
+  .detail-content {
+    padding: 40px 18px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-header {
+    padding: 70px 0 30px;
+  }
+
+  .detail-section {
+    padding: 22px;
+  }
+
+  .detail-section h2 {
+    font-size: 1.35rem;
+  }
+
+  .points-list li {
+    font-size: 0.95rem;
+    padding-left: 26px;
+  }
+
+  .policy-content,
+  .detail-content {
+    padding: 30px 16px;
+  }
 }

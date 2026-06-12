@@ -36,7 +36,7 @@ const ProductDetail = () => {
       
       <div className="container detail-content">
         {productMeta?.img && (
-          <div className="product-main-image" style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <div className="product-main-image" style={{ textAlign: 'center', marginBottom: '40px', marginTop: '10px' }}>
             <img src={productMeta.img} alt={product.title} style={{ maxWidth: '100%', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.1)' }} />
           </div>
         )}

@@ -1,6 +1,6 @@
 .industry-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
@@ -30,4 +30,22 @@
 .industry-card span {
   font-weight: 500;
   color: var(--text-color);
+}
+
+@media (max-width: 1024px) {
+  .industry-grid {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .industry-grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  .industry-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -118,3 +118,28 @@
   font-weight: 500;
   font-size: 0.9rem;
 }
+
+@media (max-width: 768px) {
+  .page-header {
+    height: auto;
+    min-height: 280px;
+    padding-top: 90px;
+  }
+
+  .header-content h1 {
+    font-size: 2rem;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .team-member {
+    width: 100%;
+    padding: 1.75rem;
+  }
+}
