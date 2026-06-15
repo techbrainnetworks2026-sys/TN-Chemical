@@ -143,7 +143,7 @@ const Products = () => {
             {productsList.map((prod) => (
               <div className="product-card" key={prod.id}>
                 <div className="product-img">
-                  <img loading='lazy' src={prod.img } alt={prod.title} />
+                  <img src={prod.img } alt={prod.title} />
                 </div>
                 <div className="product-content">
                   <h3>{prod.title}</h3>
