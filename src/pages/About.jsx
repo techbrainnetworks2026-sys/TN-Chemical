@@ -4,10 +4,10 @@ import './About.css';
 const About = () => {
   return (
     <div className="about-page">
-      <div className="page-header" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80')" }}>
+      <div className="page-header" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80')" }}>
         <div className="header-overlay"></div>
         <div className="container header-content">
-          <h1>About Techbrain Networks</h1>
+          <h2>About Techbrain Networks</h2>
           <p>Innovating for a Smarter, More Connected World</p>
         </div>
       </div>
@@ -31,25 +31,25 @@ const About = () => {
           <div className="grid grid-cols-3">
             <div className="core-card">
               <div className="icon-wrapper">
-                <h3>V</h3>
+                <span className="icon-letter">V</span>
               </div>
-              <h4>Vision</h4>
+              <h3>Vision</h3>
               <p>We aspire to be a global leader in technology innovation, setting new benchmarks for excellence. Our goal is to create a future where technology elevates the quality of life, fosters sustainability, and drives growth and collaboration on a global scale, shaping a smarter, more connected world.</p>
             </div>
             
             <div className="core-card">
               <div className="icon-wrapper">
-                <h3>M</h3>
+                <span className="icon-letter">M</span>
               </div>
-              <h4>Mission</h4>
+              <h3>Mission</h3>
               <p>We are dedicated to empowering businesses and individuals globally with cutting-edge technology solutions that drive innovation, efficiency, and sustainability. Our commitment is to deliver reliable, scalable, and secure products across diverse industries, enabling our clients to excel in a rapidly evolving digital landscape.</p>
             </div>
             
             <div className="core-card">
               <div className="icon-wrapper">
-                <h3>P</h3>
+                <span className="icon-letter">P</span>
               </div>
-              <h4>Passion</h4>
+              <h3>Passion</h3>
               <p>Our passion for research and development fuels our relentless pursuit of elegant solutions to complex challenges. Every product and service reflects our commitment to innovation and excellence. We push the boundaries of what's possible to inspire the future of technology and build a world where possibilities are limitless.</p>
             </div>
           </div>
@@ -61,7 +61,14 @@ const About = () => {
           <h2 className="section-title">Leadership</h2>
           <div className="team-member">
             <div className="team-avatar">
-              <img src="https://ui-avatars.com/api/?name=Ramkumar+Arunachalam&size=150&background=0B3C5D&color=fff" alt="Ramkumar Arunachalam" />
+              <img 
+                src="https://ui-avatars.com/api/?name=Ramkumar+Arunachalam&size=150&background=0B3C5D&color=fff" 
+                alt="Ramkumar Arunachalam - Founder of Techbrain Networks" 
+                loading="lazy"
+                decoding="async"
+                width="150"
+                height="150"
+              />
             </div>
             <h3>Ramkumar Arunachalam</h3>
             <span className="role">Founder of Techbrain Networks</span>

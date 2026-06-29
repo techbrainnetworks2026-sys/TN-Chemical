@@ -5,10 +5,10 @@ import './Contact.css';
 const Contact = () => {
   return (
     <div className="contact-page">
-      <div className="page-header" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&q=80')" }}>
+      <div className="page-header" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80')" }}>
         <div className="header-overlay"></div>
         <div className="container header-content">
-          <h1>Contact Us</h1>
+          <h2>Contact Us</h2>
           <p>Your all-in-one stop for digital products</p>
         </div>
       </div>
@@ -23,7 +23,7 @@ const Contact = () => {
           <div className="contact-grid">
             <div className="contact-info-card">
               <div className="contact-icon-wrapper">
-                <MapPin size={32} />
+                <MapPin size={32} aria-hidden="true" />
               </div>
               <h3>India Office</h3>
               <p>6/12 Papa vaikal Street, Ayyampettai Post<br />
@@ -33,7 +33,7 @@ const Contact = () => {
 
             <div className="contact-info-card">
               <div className="contact-icon-wrapper">
-                <MapPin size={32} />
+                <MapPin size={32} aria-hidden="true" />
               </div>
               <h3>UK Office</h3>
               <p>71-75 Shelton Street, Covent Garden<br />
@@ -43,36 +43,75 @@ const Contact = () => {
 
             <div className="contact-info-card">
               <div className="contact-icon-wrapper">
-                <Phone size={32} />
+                <Phone size={32} aria-hidden="true" />
               </div>
               <h3>Phone</h3>
-              <p><a href="tel:+918754906714">+91 8754906714</a></p>
+              <p><a href="tel:+918754906714" aria-label="Call India office at +91 8754906714">+91 8754906714</a></p>
             </div>
 
             <div className="contact-info-card">
               <div className="contact-icon-wrapper">
-                <Mail size={32} />
+                <Mail size={32} aria-hidden="true" />
               </div>
               <h3>Email</h3>
-              <p><a href="mailto:contact@techbrainnetworks.com">contact@techbrainnetworks.com</a></p>
+              <p><a href="mailto:contact@techbrainnetworks.com" aria-label="Send email to contact@techbrainnetworks.com">contact@techbrainnetworks.com</a></p>
             </div>
           </div>
 
           <div className="contact-form-container">
-            <form className="contact-form">
+            <form className="contact-form" aria-label="Contact request form">
               <div className="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <label htmlFor="contact-name" className="sr-only">Your Name</label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="name" 
+                  placeholder="Your Name" 
+                  required 
+                  aria-required="true"
+                />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <label htmlFor="contact-email" className="sr-only">Your Email</label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  placeholder="Your Email" 
+                  required 
+                  aria-required="true"
+                />
               </div>
               <div className="form-group">
-                <input type="text" placeholder="Subject" required />
+                <label htmlFor="contact-subject" className="sr-only">Subject</label>
+                <input 
+                  type="text" 
+                  id="contact-subject" 
+                  name="subject" 
+                  placeholder="Subject" 
+                  required 
+                  aria-required="true"
+                />
               </div>
               <div className="form-group">
-                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <label htmlFor="contact-message" className="sr-only">Your Message</label>
+                <textarea 
+                  id="contact-message" 
+                  name="message" 
+                  rows="5" 
+                  placeholder="Your Message" 
+                  required 
+                  aria-required="true"
+                ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Send Message</button>
+              <button 
+                type="submit" 
+                className="btn btn-primary" 
+                style={{ width: '100%' }}
+                aria-label="Send contact message"
+              >
+                Send Message
+              </button>
             </form>
           </div>
         </div>

@@ -14,33 +14,58 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
+    // Scroll event listener optimized with passive option for scrolling performance
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      const sections = ['home', 'about', 'products', 'industries', 'services', 'careers', 'contact'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-          }
-        }
-      }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // IntersectionObserver to optimize section tracking without layout thrashing
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const sections = ['home', 'about', 'products', 'industries', 'services', 'careers', 'contact'];
+
+    // Delay to allow Suspense components to mount and paint to the DOM
+    const timer = setTimeout(() => {
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
+      });
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [location.pathname]);
 
   useEffect(() => {
     if (location.pathname === '/' && location.hash) {
       const targetId = location.hash.replace('#', '');
       const targetEl = document.getElementById(targetId);
       if (targetEl) {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
           targetEl.scrollIntoView({ behavior: 'smooth' });
           setActiveSection(targetId);
-        }, 100);
+        }, 150);
+        return () => clearTimeout(timer);
       }
     }
   }, [location]);
@@ -73,8 +98,13 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <a href="#home" className="navbar-logo" onClick={(e) => handleNavClick(e, 'home')}>
-          <svg className="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="38" height="38" fill="none">
+        <a 
+          href="#home" 
+          className="navbar-logo" 
+          onClick={(e) => handleNavClick(e, 'home')}
+          aria-label="Techbrain Networks Chemical - Go to Home section"
+        >
+          <svg className="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="38" height="38" fill="none" aria-hidden="true">
             {/* Flask body */}
             <path d="M18 8 L18 22 L8 36 Q6 40 10 42 L38 42 Q42 40 40 36 L30 22 L30 8 Z"
               fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round"/>
@@ -96,9 +126,15 @@ const Navbar = () => {
           </div>
         </a>
         
-        <div className="menu-icon" onClick={toggleMenu}>
+        <button 
+          className="menu-icon" 
+          onClick={toggleMenu}
+          aria-label={isOpen ? "Close main navigation menu" : "Open main navigation menu"}
+          aria-expanded={isOpen}
+          style={{ background: 'none', border: 'none', padding: 0 }}
+        >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </div>
+        </button>
         
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           {navLinks.map((link, index) => (

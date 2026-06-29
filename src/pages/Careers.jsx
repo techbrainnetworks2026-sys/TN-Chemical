@@ -18,10 +18,10 @@ const jobs = [
 const Careers = () => {
   return (
     <div className="careers-page">
-      <div className="page-header" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80')" }}>
+      <div className="page-header" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80')" }}>
         <div className="header-overlay"></div>
         <div className="container header-content">
-          <h1>Join Our Team</h1>
+          <h2>Join Our Team</h2>
           <p>Shape the future of technology and make a global impact</p>
         </div>
       </div>
@@ -35,11 +35,17 @@ const Careers = () => {
             {jobs.map((job, idx) => (
               <div className="career-card" key={idx}>
                 <div className="career-icon">
-                  <Briefcase size={28} />
+                  <Briefcase size={28} aria-hidden="true" />
                 </div>
                 <h3>{job.title}</h3>
                 <p><strong>Skill:</strong> {job.skill}</p>
-                <button className="btn btn-primary" style={{ marginTop: '1rem', width: '100%' }}>Apply Now</button>
+                <button 
+                  className="btn btn-primary" 
+                  style={{ marginTop: '1rem', width: '100%' }}
+                  aria-label={`Apply now for the position of ${job.title}`}
+                >
+                  Apply Now
+                </button>
               </div>
             ))}
           </div>

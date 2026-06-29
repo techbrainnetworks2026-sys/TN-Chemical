@@ -18,17 +18,69 @@ const ProductDetail = () => {
     return (
       <div className="product-detail-page not-found">
         <h2>Product Not Found</h2>
-        <Link to="/" className="btn btn-primary">Back to Home</Link>
+        <Link to="/" className="btn btn-primary" aria-label="Return to the homepage">Back to Home</Link>
       </div>
     );
   }
 
+  // Structured Data Schemas
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://tn-chemical.vercel.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://tn-chemical.vercel.app/#products"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": product.title,
+        "item": `https://tn-chemical.vercel.app/product/${id}`
+      }
+    ]
+  };
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.title,
+    "image": productMeta ? `https://tn-chemical.vercel.app${productMeta.webp}` : undefined,
+    "description": product.content.Introduction?.[0] || `Enterprise solution for ${product.title}.`,
+    "brand": {
+      "@type": "Brand",
+      "name": "Techbrain Networks"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "0.00",
+      "availability": "https://schema.org/InStock",
+      "url": `https://tn-chemical.vercel.app/product/${id}`
+    }
+  };
+
   return (
     <div className="product-detail-page">
+      <script type="application/ld+json">
+        {JSON.stringify(breadcrumbSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
+
       <div className="page-header detail-header">
         <div className="header-overlay"></div>
         <div className="container header-content">
-          <Link to="/" className="back-link"><ArrowLeft size={20} /> Back to Products</Link>
+          <Link to="/#products" className="back-link" aria-label="Go back to the chemical products list"><ArrowLeft size={20} aria-hidden="true"/> Back to Products</Link>
           <h1>{product.title}</h1>
           <p>Detailed insights and comprehensive capabilities</p>
         </div>
@@ -37,7 +89,19 @@ const ProductDetail = () => {
       <div className="container detail-content">
         {productMeta?.img && (
           <div className="product-main-image" style={{ textAlign: 'center', marginBottom: '40px', marginTop: '10px' }}>
-            <img src={productMeta.img} alt={product.title} style={{maxWidth: '80%', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.1)' }} />
+            <picture>
+              <source srcSet={productMeta.avif} type="image/avif" />
+              <source srcSet={productMeta.webp} type="image/webp" />
+              <img 
+                src={productMeta.img} 
+                alt={`${product.title} interface details`} 
+                loading="lazy" 
+                decoding="async" 
+                width="640" 
+                height="320" 
+                style={{maxWidth: '80%', borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.1)', objectFit: 'cover' }} 
+              />
+            </picture>
           </div>
         )}
         

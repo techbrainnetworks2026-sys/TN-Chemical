@@ -15,10 +15,10 @@ const industriesList = [
 const Industries = () => {
   return (
     <div className="industries-page">
-      <div className="page-header" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?w=1920&q=80')" }}>
+      <div className="page-header" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=1200&q=80')" }}>
         <div className="header-overlay"></div>
         <div className="container header-content">
-          <h1>Industries We Serve</h1>
+          <h2>Industries We Serve</h2>
           <p>Delivering 480 innovative products spanning across multiple domains</p>
         </div>
       </div>
@@ -31,7 +31,7 @@ const Industries = () => {
           <div className="industry-grid">
             {industriesList.map((ind, index) => (
               <div className="industry-card" key={index}>
-                <CheckCircle2 className="industry-icon" />
+                <CheckCircle2 className="industry-icon" aria-hidden="true" />
                 <span>{ind}</span>
               </div>
             ))}

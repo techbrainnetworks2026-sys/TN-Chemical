@@ -27,7 +27,8 @@
   text-align: center;
 }
 
-.header-content h1 {
+.header-content h1,
+.header-content h2 {
   font-size: 3rem;
   color: var(--white);
   margin-bottom: 0.5rem;
@@ -70,15 +71,20 @@
   margin: 0 auto 1.5rem auto;
 }
 
-.icon-wrapper h3 {
+.icon-wrapper .icon-letter {
   color: var(--white);
   margin: 0;
   font-size: 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
 }
 
-.core-card h4 {
+.core-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
 .core-card p {
@@ -126,7 +132,8 @@
     padding-top: 90px;
   }
 
-  .header-content h1 {
+  .header-content h1,
+  .header-content h2 {
     font-size: 2rem;
   }
 

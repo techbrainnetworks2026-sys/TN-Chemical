@@ -1,18 +1,23 @@
 .hero {
   position: relative;
   height: 100vh;
-
-  background-image: url('../../public/image/chemical_background.jpeg');
-  /* Nature/Industrial vibe */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  /* Parallax effect */
   display: flex;
   align-items: center;
- 
+  overflow: hidden;
   /* offset navbar */
   padding-top: 80px;
+}
+
+.hero-bg-picture,
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-overlay {
